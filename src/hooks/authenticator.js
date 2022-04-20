@@ -95,7 +95,7 @@ export function useAuthenticatorRecorder(props, context) {
 
 const isValidLogin = (userData) => {
     const { error, value } = Joi.object({
-        password: Joi.string().min(3).max(30).required(),
+        password: Joi.string().min(6).max(30).required(),
 
         email: Joi.string().email({ tlds: false }),
     }).validate({ ...userData });
@@ -112,7 +112,7 @@ const isValidRegister = (userData) => {
     const { error, value } = Joi.object({
         pseudo: Joi.string().alphanum().min(3).max(30).required(),
         email: Joi.string().email({ tlds: false }),
-        password: Joi.string().min(3).max(30).required(),
+        password: Joi.string().min(6).max(30).required(),
         passwordConfirmation: Joi.string().valid(Joi.in("password")),
         img: Joi.string().uri().required(),
     }).validate({ ...userData });
