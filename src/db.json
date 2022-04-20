@@ -1,0 +1,67 @@
+{
+  "utilisateurs": [
+    {
+      "id": 1,
+      "pseudo": "Alain",
+      "email": "alain@yahoo.fr",
+      "password": "123456",
+      "urlImgProfil": "https://thispersondoesnotexist.com/image"
+    },
+    {
+      "email": "dieudonne.allognon@outlook.fr",
+      "password": "admin",
+      "pseudo": "jiedevm",
+      "img": "https://thispersondoesnotexist.com/image",
+      "id": 2
+    }
+  ],
+  "articles": [
+    {
+      "id": 1,
+      "contenu": "lorem ipsum",
+      "img": "https://source.unsplash.com/random/1000x300",
+      "like": 14,
+      "pseudo": "Alain",
+      "date": 1649277945051,
+      "commentaires": [
+        {
+          "id": 1,
+          "contenu": "lorem ipsum",
+          "pseudo": "Béatrice",
+          "dt": 1649277945051
+        },
+        {
+          "id": 2,
+          "contenu": "lorem ipsum",
+          "pseudo": "Béatrice",
+          "dt": 1649277945051
+        }
+      ]
+    },
+    {
+      "contenu": "aaaaaaaaaaaaa",
+      "img": "https://source.unsplash.com/random/1000x300",
+      "like": 3,
+      "date": 1650461059061,
+      "commentaires": [],
+      "pseudo": "jiedevm",
+      "id": 2
+    },
+    {
+      "contenu": "NNNNN",
+      "img": "https://thispersondoesnotexist.com/image",
+      "like": 1,
+      "date": 1650461697885,
+      "commentaires": [
+        {
+          "id": 1,
+          "contenu": "sssssssssssssssssssss",
+          "pseudo": "jiedevm",
+          "dt": 1650472374406
+        }
+      ],
+      "pseudo": "jiedevm",
+      "id": 3
+    }
+  ]
+}
