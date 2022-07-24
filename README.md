@@ -1,10 +1,15 @@
-# vue-blog-2
+# vue-blog
 
-This template should help get you started developing with Vue 3 in Vite.
+This app is a mini blog done using vue. It uses the file *src/db.json* as
+database through an api using *json-server*.
 
-## Recommended IDE Setup
+## Usage
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.vscode-typescript-vue-plugin).
+To have access to the database api, run the following command:
+
+```sh
+npx json-server ./src/db.json --port 3004
+```
 
 ## Customize configuration
 
