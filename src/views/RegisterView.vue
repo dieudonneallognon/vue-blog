@@ -37,16 +37,18 @@
                         type="password"
                         class="form-control"
                         v-model="password"
+                        placeholder="Mot de passe"
                     />
                 </div>
                 <div class="mb-3">
                     <label for="exampleFormControlTextarea1" class="form-label"
-                        >Mot de passe</label
+                        >Confirmation mot de passe</label
                     >
                     <input
                         type="password"
                         class="form-control"
                         v-model="passwordConfirmation"
+                        placeholder="Mot de passe"
                     />
                 </div>
                 <div class="mb-3">
@@ -57,7 +59,7 @@
                         type="text"
                         class="form-control"
                         id="img"
-                        placeholder="url image"
+                        placeholder="https://thispersondoesnotexist.com/image"
                         v-model="img"
                     />
                 </div>

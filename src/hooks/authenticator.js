@@ -43,10 +43,10 @@ export function useAuthenticatorLogger(props, context) {
 }
 
 export function useAuthenticatorRecorder(props, context) {
-    // const formation = ref([]);
     const user = {
         email: ref(""),
         password: ref(""),
+        passwordConfirmation: ref(""),
         pseudo: ref(""),
         img: ref(""),
     };
@@ -54,6 +54,7 @@ export function useAuthenticatorRecorder(props, context) {
     const userData = reactive({
         email: user.email.value,
         password: user.password.value,
+        passwordConfirmation: user.passwordConfirmation.value,
         pseudo: user.pseudo.value,
         img: user.img.value,
     });
@@ -66,10 +67,12 @@ export function useAuthenticatorRecorder(props, context) {
                 .then((res) => res.json())
                 .then((data) => {
                     if (!data.find((user) => user.pseudo === userData.pseudo)) {
+                        const { passwordConfirmation, ...validUserData } =
+                            userData;
                         fetch("http://localhost:3004/utilisateurs", {
                             method: "POST",
                             headers: { "content-type": "application/json" },
-                            body: JSON.stringify(userData),
+                            body: JSON.stringify(validUserData),
                         })
                             .then((reponse) => reponse.json())
                             .then((data) => {
@@ -113,7 +116,10 @@ const isValidRegister = (userData) => {
         pseudo: Joi.string().alphanum().min(3).max(30).required(),
         email: Joi.string().email({ tlds: false }),
         password: Joi.string().min(6).max(30).required(),
-        passwordConfirmation: Joi.string().valid(Joi.in("password")),
+        passwordConfirmation: Joi.string()
+            .required()
+            .valid(Joi.in("password"))
+            .error(new Error("Please confirm your password")),
         img: Joi.string().uri().required(),
     }).validate({ ...userData });
 
