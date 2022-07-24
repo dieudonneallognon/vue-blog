@@ -1,5 +1,7 @@
 # vue-blog
 
+![vue-blog](./preview.jpeg)
+
 This app is a mini blog done using vue. It uses the file *src/db.json* as
 database through an api using *json-server*.
 
