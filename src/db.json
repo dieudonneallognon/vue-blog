@@ -5,7 +5,7 @@
       "pseudo": "Alain",
       "email": "alain@yahoo.fr",
       "password": "123456",
-      "urlImgProfil": "https://thispersondoesnotexist.com/image"
+      "img": "https://thispersondoesnotexist.com/image"
     },
     {
       "email": "dieudonne.allognon@outlook.fr",
