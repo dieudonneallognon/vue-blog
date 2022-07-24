@@ -17,6 +17,7 @@ export default {
     setup(props, context) {
         let articles = ref([]);
         let user = ref({});
+        let users = ref([]);
 
         onMounted(() => {
             router.push("/dashboard");
@@ -24,6 +25,10 @@ export default {
             fetch("http://localhost:3004/articles")
                 .then((res) => res.json())
                 .then((data) => (articles.value = data));
+
+            fetch("http://localhost:3004/utilisateurs")
+                .then((res) => res.json())
+                .then((data) => (users.value = data));
         });
 
         function toRoute(routeName) {
@@ -38,6 +43,10 @@ export default {
             fetch("http://localhost:3004/articles")
                 .then((res) => res.json())
                 .then((data) => (articles.value = data));
+
+            fetch("http://localhost:3004/utilisateurs")
+                .then((res) => res.json())
+                .then((data) => (users.value = data));
         }
 
         return {
@@ -45,33 +54,13 @@ export default {
             syncData,
             articles,
             user,
+            users,
         };
     },
 };
 </script>
 
 <template>
-    <!-- <header>
-    <img
-      alt="Vue logo"
-      class="logo"
-      src="@/assets/logo.svg"
-      width="125"
-      height="125"
-    />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView /> -->
-
     <main class="container-fluid">
         <header class="row my-1">
             <RouterLink to="/home">
@@ -87,7 +76,7 @@ export default {
                     @forward="toRoute"
                     @update="syncData"
                     :articles="articles"
-                    :utilisateur="user"
+                    :users="users"
                     :user="user"
                 />
             </div>

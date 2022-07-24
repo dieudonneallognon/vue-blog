@@ -1,5 +1,5 @@
 <template>
-    <PostForm :user="user" @refresh="refreshHome" />
+    <PostForm :user="user" :users="users" @refresh="refreshHome" />
     <div
         :key="article.id"
         v-for="article in articles"
@@ -9,14 +9,16 @@
             <h3>
                 {{ article.pseudo }}
                 <img
-                    src="https://picsum.photos/50/50"
+                    :src="users.find((u) => u.pseudo === article.pseudo).img"
                     class="rounded-circle"
-                    alt="{{article.pseudo}}"
+                    :alt="article.title"
+                    height="50"
+                    width="50"
                 />
             </h3>
             <p>{{ new Date(article.date).toDateString() }}</p>
         </div>
-        <img src="https://picsum.photos/200/50" class="card-img-top" alt="" />
+        <img :src="article.img" class="card-img-top" alt="" />
         <div class="card-body">
             <p class="card-text">
                 {{ article.contenu }}
@@ -40,7 +42,9 @@
             </span>
         </div>
         <ul class="list-group list-group-flush text-start">
-            <li v-if="article.commentaires.length > 0" class="list-group-item"><h2>Commentaire:</h2></li>
+            <li v-if="article.commentaires.length > 0" class="list-group-item">
+                <h2>Commentaire:</h2>
+            </li>
             <li
                 v-for="commentaire in article.commentaires"
                 :key="commentaire.id"
@@ -80,12 +84,13 @@ export default {
                     context.emit("update");
                 });
         }
+
         return {
             refreshHome,
             like,
         };
     },
-    props: ["articles", "utilisateurs", "user"],
+    props: ["articles", "users", "user"],
 };
 </script>
 <style scoped>
